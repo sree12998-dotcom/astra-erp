@@ -1,0 +1,40 @@
+/* ASTRA — Tables */
+
+.astra-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.astra-table th {
+  text-align: left;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--astra-text-faint);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--astra-border);
+}
+
+.astra-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--astra-border);
+  color: var(--astra-text);
+}
+
+.astra-table tr:last-child td {
+  border-bottom: none;
+}
+
+.pill {
+  display: inline-block;
+  font-family: var(--astra-font-mono);
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.pill-completed    { color: var(--astra-green); border-color: rgba(0,217,163,0.3); background: var(--astra-green-10); }
+.pill-in-progress  { color: var(--astra-cyan);  border-color: rgba(0,229,255,0.3); background: var(--astra-cyan-10); }
+.pill-queued       { color: var(--astra-text-dim); border-color: var(--astra-text-faint); background: transparent; }

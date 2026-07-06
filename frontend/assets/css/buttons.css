@@ -1,0 +1,33 @@
+/* ASTRA — Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--astra-space-2);
+  padding: 10px 16px;
+  border-radius: var(--astra-radius-sm);
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 600;
+  transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--astra-cyan);
+  color: var(--astra-void);
+}
+.btn-primary:hover { opacity: 0.9; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--astra-border);
+  color: var(--astra-text-dim);
+}
+.btn-ghost:hover {
+  border-color: var(--astra-text-faint);
+  color: var(--astra-text);
+}
+
+.btn-block { width: 100%; }

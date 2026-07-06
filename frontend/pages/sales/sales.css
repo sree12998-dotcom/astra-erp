@@ -1,0 +1,368 @@
+/* ===========================================================
+   ASTRA — Sales Management
+   Header, sidebar, KPI cards, and Astra Intelligence styling
+   come from dashboard.css (design system source). This file
+   covers only what's unique to the Sales module.
+   =========================================================== */
+
+.sal-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sal-title {
+  font-family: var(--astra-font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--astra-text-white);
+}
+
+.sal-subtitle {
+  font-size: 13px;
+  color: var(--astra-text-dim);
+}
+
+.sal-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Toolbar ---------- */
+
+.sal-toolbar-card {
+  padding: 14px 16px;
+}
+
+.sal-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sal-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 240px;
+  flex: 1;
+  max-width: 320px;
+  padding: 9px 12px;
+  border-radius: var(--astra-radius-sm);
+  background: var(--astra-panel-2);
+  border: 1px solid var(--astra-border);
+  color: var(--astra-text-faint);
+  transition: border-color 0.15s ease;
+}
+
+.sal-search:focus-within {
+  border-color: var(--astra-cyan);
+}
+
+.sal-search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--astra-text);
+  font-size: 12.5px;
+  width: 100%;
+}
+
+.sal-search input::placeholder {
+  color: var(--astra-text-faint);
+}
+
+.sal-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sal-select {
+  background: var(--astra-panel-2);
+  border: 1px solid var(--astra-border);
+  border-radius: var(--astra-radius-sm);
+  padding: 8px 10px;
+  font-size: 12.5px;
+  color: var(--astra-text);
+}
+
+.sal-select:focus {
+  outline: none;
+  border-color: var(--astra-cyan);
+}
+
+/* ---------- Table ---------- */
+
+.sal-table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.sal-table-scroll {
+  overflow-x: auto;
+  max-height: 560px;
+  overflow-y: auto;
+}
+
+.sal-table {
+  min-width: 1040px;
+}
+
+.sal-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--astra-panel);
+  z-index: 1;
+}
+
+.sal-table td {
+  white-space: nowrap;
+}
+
+.sal-empty-state {
+  padding: 40px 16px;
+  text-align: center;
+  color: var(--astra-text-faint);
+  font-size: 13px;
+}
+
+/* ---------- Status pills ---------- */
+
+.sal-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--astra-font-mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.sal-status-pill::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.sal-status-pill.pending   { color: var(--astra-text-faint); border-color: var(--astra-border); }
+.sal-status-pill.confirmed { color: var(--astra-cyan);  border-color: rgba(0,229,255,0.3);  background: var(--astra-cyan-10); }
+.sal-status-pill.shipped   { color: var(--astra-amber); border-color: rgba(255,176,32,0.3);  background: var(--astra-amber-10); }
+.sal-status-pill.delivered { color: var(--astra-green); border-color: rgba(0,217,163,0.3);  background: var(--astra-green-10); }
+.sal-status-pill.cancelled { color: #FF6B6B; border-color: rgba(255,107,107,0.3); background: rgba(255,107,107,0.08); }
+.sal-status-pill.paid      { color: var(--astra-green); border-color: rgba(0,217,163,0.3);  background: var(--astra-green-10); }
+.sal-status-pill.unpaid    { color: var(--astra-amber); border-color: rgba(255,176,32,0.3);  background: var(--astra-amber-10); }
+
+.sal-row-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.sal-icon-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid var(--astra-border);
+  background: var(--astra-panel-2);
+  color: var(--astra-text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.sal-icon-btn:hover {
+  color: var(--astra-text-white);
+  border-color: var(--astra-text-faint);
+}
+
+/* ---------- Channel performance ---------- */
+
+.sal-channel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.sal-channel-card {
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-radius: var(--astra-radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.sal-channel-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--astra-text-faint);
+  box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.5);
+}
+
+.sal-channel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sal-channel-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--astra-text-white);
+}
+
+.sal-channel-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+}
+
+.sal-channel-row > span:first-child {
+  color: var(--astra-text-faint);
+}
+
+/* ---------- Top customers list ---------- */
+
+.sal-top-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.sal-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--astra-border);
+  font-size: 12.5px;
+}
+
+.sal-top-row:last-child {
+  border-bottom: none;
+}
+
+.sal-top-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--astra-panel-2);
+  color: var(--astra-text-dim);
+  font-family: var(--astra-font-mono);
+  font-size: 10px;
+  margin-right: 10px;
+}
+
+.sal-top-name {
+  display: flex;
+  align-items: center;
+}
+
+.sal-top-meta {
+  color: var(--astra-text-faint);
+  font-size: 11px;
+  margin-left: 8px;
+}
+
+/* ---------- Toast notifications ---------- */
+
+.sal-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 60;
+}
+
+.sal-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 260px;
+  max-width: 360px;
+  padding: 13px 16px;
+  border-radius: var(--astra-radius-md);
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-left: 3px solid var(--astra-cyan);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+  font-size: 12.5px;
+  color: var(--astra-text);
+  transform: translateX(16px);
+  opacity: 0;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease;
+}
+
+.sal-toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.sal-toast.success { border-left-color: var(--astra-green); }
+.sal-toast.info     { border-left-color: var(--astra-cyan); }
+.sal-toast.warning   { border-left-color: var(--astra-amber); }
+
+.sal-toast-icon {
+  flex-shrink: 0;
+  display: flex;
+}
+
+.sal-toast.success .sal-toast-icon { color: var(--astra-green); }
+.sal-toast.info .sal-toast-icon     { color: var(--astra-cyan); }
+.sal-toast.warning .sal-toast-icon   { color: var(--astra-amber); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1180px) {
+  .sal-channel-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .sal-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sal-search {
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .sal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sal-channel-grid {
+    grid-template-columns: 1fr;
+  }
+  .sal-toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+  .sal-toast {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sal-toast {
+    transition: none !important;
+  }
+}

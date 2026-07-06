@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>if(!localStorage.getItem("astra_token")){location.replace("../login/login.html");}</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Astra — Settings</title>
+<link href="../../assets/css/variables.css" rel="stylesheet"/>
+<link href="../../assets/css/global.css" rel="stylesheet"/>
+<link href="../../assets/css/layout.css" rel="stylesheet"/>
+<link href="../../assets/css/sidebar.css" rel="stylesheet"/>
+<link href="../../assets/css/cards.css" rel="stylesheet"/>
+<link href="../../assets/css/tables.css" rel="stylesheet"/>
+<link href="../../assets/css/buttons.css" rel="stylesheet"/>
+<link href="../../assets/css/forms.css" rel="stylesheet"/>
+<link href="../dashboard/dashboard.css" rel="stylesheet"/>
+<link href="settings.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar mc-sidebar">
+<div class="sidebar-brand">
+<div class="sidebar-brand-mark">A</div>
+<span class="sidebar-brand-name">ASTRA</span>
+</div>
+<nav class="sidebar-nav mc-sidebar-nav">
+<a class="sidebar-link" data-page="dashboard" href="../dashboard/dashboard.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span><span class="mc-nav-label">Command Center</span></a>
+<a class="sidebar-link" data-page="inventory" href="../inventory/inventory.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span><span class="mc-nav-label">Inventory</span></a>
+<a class="sidebar-link" data-page="suppliers" href="../suppliers/suppliers.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></span><span class="mc-nav-label">Suppliers</span></a>
+<a class="sidebar-link" data-page="purchase" href="../purchase/purchase.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2l2.6 12.2a2 2 0 002 1.6h8.6a2 2 0 002-1.6L21 7H6"/></svg></span><span class="mc-nav-label">Purchase</span></a>
+<a class="sidebar-link" data-page="production" href="../production/production.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v6m0 8v6M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M2 12h6m8 0h6M4.93 19.07l4.24-4.24m5.66-5.66l4.24-4.24"/></svg></span><span class="mc-nav-label">Production</span></a><a class="sidebar-link" data-page="packaging" href="../packaging/packaging.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2z"/><path d="M7 16v-4h10v4"/></svg></span><span class="mc-nav-label">Packaging</span></a>
+<a class="sidebar-link" data-page="sales" href="../sales/sales.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></span><span class="mc-nav-label">Sales</span></a>
+<a class="sidebar-link" data-page="customers" href="../customers/customers.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5a7.5 7.5 0 0115 0"/></svg></span><span class="mc-nav-label">Customers</span></a>
+<a class="sidebar-link" data-page="reports" href="../reports/reports.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9m6 10V5m6 14v-7"/></svg></span><span class="mc-nav-label">Reports</span></a>
+<a class="sidebar-link active" data-page="settings" href="../settings/settings.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 008.6 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H2a2 2 0 010-4h.09A1.65 1.65 0 003.6 8.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H8a1.65 1.65 0 001-1.51V2a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V8a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span><span class="mc-nav-label">Settings</span></a>
+</nav>
+<div class="sidebar-footer mc-sidebar-footer">
+<div class="mc-sidebar-user-avatar" id="sidebar-user-avatar">—</div>
+<div class="mc-sidebar-user-info">
+<div data-user-name="" class="mc-sidebar-user-name">—</div>
+<div class="text-faint" data-user-role=""></div>
+</div>
+</div>
+</aside>
+<div class="app-main">
+<header class="mc-header">
+<div class="mc-header-left">
+<h1 class="mc-greeting" id="page-title">Settings</h1>
+<div class="mc-header-meta">
+<span>Company profile, users, roles, and system preferences.</span>
+</div>
+<div class="mc-company-name">
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"/></svg>
+Gujarat Organics Co. <span class="mc-company-sep">→</span> Belgaum, KA
+</div>
+</div>
+<div class="mc-header-right">
+<div class="mc-search">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+<input aria-label="Global search" placeholder="Search Astra..." type="text"/>
+<span class="mc-search-kbd">⌘K</span>
+</div>
+<button aria-label="Notifications" class="mc-icon-btn">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 01-3.46 0"></path></svg>
+<span class="mc-badge-dot"></span>
+</button>
+<button aria-label="Settings" class="mc-icon-btn" onclick="window.location.href='../settings/settings.html'">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 008.6 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H2a2 2 0 010-4h.09A1.65 1.65 0 003.6 8.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H8a1.65 1.65 0 001-1.51V2a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V8a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
+</button>
+<div class="mc-header-divider"></div>
+<div class="mc-avatar" id="user-avatar" title="Account">—</div>
+<button class="btn btn-ghost mc-signout" id="logout-btn">Sign out</button>
+</div>
+</header>
+
+<div class="app-content mc-content">
+
+<section class="mc-section">
+<div class="mc-section-title">Company Profile</div>
+<div class="card set-profile-card">
+<div class="set-profile-grid">
+<div class="form-group">
+<label class="form-label">Company Name</label>
+<input class="form-input" id="f-company-name" value="Gujarat Organics Co." />
+</div>
+<div class="form-group">
+<label class="form-label">GST Number</label>
+<input class="form-input mono" id="f-company-gst" value="24AAACG1234F1Z5" />
+</div>
+<div class="form-group set-form-span2">
+<label class="form-label">Registered Address</label>
+<input class="form-input" id="f-company-address" value="Plot 14, GIDC Estate, Anand, Gujarat 388001" />
+</div>
+<div class="form-group">
+<label class="form-label">Primary Facility</label>
+<input class="form-input" id="f-company-facility" value="Belgaum, Karnataka" />
+</div>
+<div class="form-group">
+<label class="form-label">Support Email</label>
+<input class="form-input" id="f-company-email" value="support@gujaratorganics.in" />
+</div>
+</div>
+<div class="set-profile-actions">
+<button class="btn btn-primary" id="btn-save-profile">Save Changes</button>
+</div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Quick Actions</div>
+<div class="set-actions">
+<button class="btn btn-primary" id="btn-invite-user">+ Invite User</button>
+<button class="btn btn-ghost" id="btn-manage-roles">+ Manage Roles</button>
+<button class="btn btn-ghost" id="btn-configure-integration">+ Configure Integration</button>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Users</div>
+<div class="card set-table-card">
+<div class="set-table-scroll">
+<table class="astra-table mc-table set-table" id="users-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Role</th>
+<th>Status</th>
+<th>Last Login</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="users-tbody"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Roles &amp; Permissions</div>
+<div class="set-roles-grid" id="roles-grid"></div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Notification Preferences</div>
+<div class="card set-toggle-card" id="notification-toggles"></div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Integrations</div>
+<div class="set-integration-grid" id="integration-grid"></div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Security</div>
+<div class="card set-security-card">
+<div class="set-security-row">
+<div>
+<div class="set-security-label">Password</div>
+<div class="set-security-sub">Last changed 42 days ago</div>
+</div>
+<button class="btn btn-ghost" id="btn-change-password">Change Password</button>
+</div>
+<div class="set-security-row">
+<div>
+<div class="set-security-label">Active Sessions</div>
+<div class="set-security-sub">1 device currently signed in</div>
+</div>
+<button class="btn btn-ghost" id="btn-manage-sessions">Manage Sessions</button>
+</div>
+</div>
+</section>
+
+</div>
+</div>
+</div>
+
+<div class="set-toast-container" id="toast-container" aria-live="polite"></div>
+
+<script src="../../assets/js/storage.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/auth.js"></script>
+<script src="../../assets/js/app.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>

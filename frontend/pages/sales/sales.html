@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>if(!localStorage.getItem("astra_token")){location.replace("../login/login.html");}</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Astra — Sales Management</title>
+<link href="../../assets/css/variables.css" rel="stylesheet"/>
+<link href="../../assets/css/global.css" rel="stylesheet"/>
+<link href="../../assets/css/layout.css" rel="stylesheet"/>
+<link href="../../assets/css/sidebar.css" rel="stylesheet"/>
+<link href="../../assets/css/cards.css" rel="stylesheet"/>
+<link href="../../assets/css/tables.css" rel="stylesheet"/>
+<link href="../../assets/css/buttons.css" rel="stylesheet"/>
+<link href="../../assets/css/forms.css" rel="stylesheet"/>
+<link href="../dashboard/dashboard.css" rel="stylesheet"/>
+<link href="sales.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar mc-sidebar">
+<div class="sidebar-brand">
+<div class="sidebar-brand-mark">A</div>
+<span class="sidebar-brand-name">ASTRA</span>
+</div>
+<nav class="sidebar-nav mc-sidebar-nav">
+<a class="sidebar-link" data-page="dashboard" href="../dashboard/dashboard.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span><span class="mc-nav-label">Command Center</span></a>
+<a class="sidebar-link" data-page="inventory" href="../inventory/inventory.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span><span class="mc-nav-label">Inventory</span></a>
+<a class="sidebar-link" data-page="suppliers" href="../suppliers/suppliers.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></span><span class="mc-nav-label">Suppliers</span></a>
+<a class="sidebar-link" data-page="purchase" href="../purchase/purchase.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2l2.6 12.2a2 2 0 002 1.6h8.6a2 2 0 002-1.6L21 7H6"/></svg></span><span class="mc-nav-label">Purchase</span></a>
+<a class="sidebar-link" data-page="production" href="../production/production.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v6m0 8v6M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M2 12h6m8 0h6M4.93 19.07l4.24-4.24m5.66-5.66l4.24-4.24"/></svg></span><span class="mc-nav-label">Production</span></a><a class="sidebar-link" data-page="packaging" href="../packaging/packaging.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2z"/><path d="M7 16v-4h10v4"/></svg></span><span class="mc-nav-label">Packaging</span></a>
+<a class="sidebar-link active" data-page="sales" href="../sales/sales.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></span><span class="mc-nav-label">Sales</span></a>
+<a class="sidebar-link" data-page="customers" href="../customers/customers.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5a7.5 7.5 0 0115 0"/></svg></span><span class="mc-nav-label">Customers</span></a>
+<a class="sidebar-link" data-page="reports" href="../reports/reports.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9m6 10V5m6 14v-7"/></svg></span><span class="mc-nav-label">Reports</span></a>
+<a class="sidebar-link" data-page="settings" href="../settings/settings.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 008.6 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H2a2 2 0 010-4h.09A1.65 1.65 0 003.6 8.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H8a1.65 1.65 0 001-1.51V2a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V8a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span><span class="mc-nav-label">Settings</span></a>
+</nav>
+<div class="sidebar-footer mc-sidebar-footer">
+<div class="mc-sidebar-user-avatar" id="sidebar-user-avatar">—</div>
+<div class="mc-sidebar-user-info">
+<div data-user-name="" class="mc-sidebar-user-name">—</div>
+<div class="text-faint" data-user-role=""></div>
+</div>
+</div>
+</aside>
+<div class="app-main">
+<header class="mc-header">
+<div class="mc-header-left">
+<h1 class="mc-greeting" id="page-title">Sales Management</h1>
+<div class="mc-header-meta">
+<span>Track orders, channels, revenue and customer demand across every sales channel.</span>
+</div>
+<div class="mc-company-name">
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"/></svg>
+Gujarat Organics Co. <span class="mc-company-sep">→</span> Belgaum, KA
+</div>
+</div>
+<div class="mc-header-right">
+<div class="mc-search">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+<input aria-label="Global search" placeholder="Search Astra..." type="text"/>
+<span class="mc-search-kbd">⌘K</span>
+</div>
+<button aria-label="Notifications" class="mc-icon-btn">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 01-3.46 0"></path></svg>
+<span class="mc-badge-dot"></span>
+</button>
+<button aria-label="Settings" class="mc-icon-btn" onclick="window.location.href='../settings/settings.html'">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 008.6 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H2a2 2 0 010-4h.09A1.65 1.65 0 003.6 8.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H8a1.65 1.65 0 001-1.51V2a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V8a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
+</button>
+<div class="mc-header-divider"></div>
+<div class="mc-avatar" id="user-avatar" title="Account">—</div>
+<button class="btn btn-ghost mc-signout" id="logout-btn">Sign out</button>
+</div>
+</header>
+
+<div class="app-content mc-content">
+
+<section class="mc-section">
+<div class="mc-section-title">Sales Overview</div>
+<div class="kpi-grid mc-kpi-grid">
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<div class="mc-kpi-top">
+<span class="kpi-label">Today's Sales</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,16 10,13 20,14 30,9 40,10 50,4 60,6"></polyline></svg>
+</div>
+<span class="kpi-value" id="kpi-today-sales">—</span>
+<span class="kpi-sub up">↑ 12.1% vs yesterday</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-green">
+<div class="mc-kpi-top">
+<span class="kpi-label">Orders This Month</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,12 10,11 20,12 30,9 40,8 50,7 60,5"></polyline></svg>
+</div>
+<span class="kpi-value" id="kpi-orders-month">—</span>
+<span class="kpi-sub up">↑ 6.4%</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<div class="mc-kpi-top">
+<span class="kpi-label">Average Order Value</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,10 10,10 20,6 30,6 40,12 50,8 60,4"></polyline></svg>
+</div>
+<span class="kpi-value" id="kpi-aov">—</span>
+<span class="kpi-sub neutral">stable</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-amber">
+<div class="mc-kpi-top">
+<span class="kpi-label">Conversion Rate</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,4 10,6 20,5 30,9 40,10 50,14 60,16"></polyline></svg>
+</div>
+<span class="kpi-value" id="kpi-conversion">—</span>
+<span class="kpi-sub down">review needed</span>
+</div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Quick Actions</div>
+<div class="sal-actions">
+<button class="btn btn-primary" id="btn-new-order">+ New Sales Order</button>
+<button class="btn btn-ghost" id="btn-record-payment">+ Record Payment</button>
+<button class="btn btn-ghost" id="btn-generate-invoice">+ Generate Invoice</button>
+<button class="btn btn-ghost" id="btn-export-report">+ Export Sales Report</button>
+</div>
+</section>
+
+<section class="mc-section mc-intelligence-section">
+<div class="mc-section-title mc-intelligence-title">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2a7 7 0 00-4 12.7V17a2 2 0 002 2h4a2 2 0 002-2v-2.3A7 7 0 0012 2z"></path><path d="M9 21h6"></path></svg>
+Astra Sales Intelligence
+</div>
+<div class="card mc-intelligence-card">
+<div class="mc-intelligence-list" id="sales-insights"></div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Sales Orders</div>
+
+<div class="card sal-toolbar-card">
+<div class="sal-toolbar">
+<div class="sal-search">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+<input type="text" id="order-search" placeholder="Search sales order..." aria-label="Search sales orders" />
+</div>
+<div class="sal-filters">
+<select class="sal-select" id="filter-channel" aria-label="Filter by channel">
+<option value="">All Channels</option>
+<option value="ecommerce">E-commerce</option>
+<option value="retailer">Retailer</option>
+<option value="direct">Direct Consumer</option>
+</select>
+<select class="sal-select" id="filter-order-status" aria-label="Filter by status">
+<option value="">All Status</option>
+<option value="pending">Pending</option>
+<option value="confirmed">Confirmed</option>
+<option value="shipped">Shipped</option>
+<option value="delivered">Delivered</option>
+<option value="cancelled">Cancelled</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="card sal-table-card">
+<div class="sal-table-scroll">
+<table class="astra-table mc-table sal-table" id="orders-table">
+<thead>
+<tr>
+<th>Order ID</th>
+<th>Customer</th>
+<th>Channel</th>
+<th>Product</th>
+<th>Qty</th>
+<th>Amount</th>
+<th>Payment Status</th>
+<th>Order Status</th>
+<th>Date</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="orders-tbody"></tbody>
+</table>
+</div>
+<div class="sal-empty-state hidden" id="orders-empty-state">No sales orders match your search.</div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Channel Performance</div>
+<div class="sal-channel-grid" id="channel-grid"></div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Top Customers</div>
+<div class="card">
+<div class="sal-top-list" id="top-customers"></div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Recent Sales Activity</div>
+<div class="card">
+<div class="mc-timeline" id="sales-activity"></div>
+</div>
+</section>
+
+</div>
+</div>
+</div>
+
+<div class="sal-toast-container" id="toast-container" aria-live="polite"></div>
+
+<script src="../../assets/js/storage.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/auth.js"></script>
+<script src="../../assets/js/app.js"></script>
+<script src="sales.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>if(!localStorage.getItem("astra_token")){location.replace("../login/login.html");}</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Astra — Packaging Management</title>
+<link href="../../assets/css/variables.css" rel="stylesheet"/>
+<link href="../../assets/css/global.css" rel="stylesheet"/>
+<link href="../../assets/css/layout.css" rel="stylesheet"/>
+<link href="../../assets/css/sidebar.css" rel="stylesheet"/>
+<link href="../../assets/css/cards.css" rel="stylesheet"/>
+<link href="../../assets/css/tables.css" rel="stylesheet"/>
+<link href="../../assets/css/buttons.css" rel="stylesheet"/>
+<link href="../../assets/css/forms.css" rel="stylesheet"/>
+<link href="../dashboard/dashboard.css" rel="stylesheet"/>
+<link href="packaging.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar mc-sidebar">
+<div class="sidebar-brand">
+<div class="sidebar-brand-mark">A</div>
+<span class="sidebar-brand-name">ASTRA</span>
+</div>
+<nav class="sidebar-nav mc-sidebar-nav">
+<a class="sidebar-link" data-page="dashboard" href="../dashboard/dashboard.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span><span class="mc-nav-label">Command Center</span></a>
+<a class="sidebar-link" data-page="inventory" href="../inventory/inventory.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span><span class="mc-nav-label">Inventory</span></a>
+<a class="sidebar-link" data-page="suppliers" href="../suppliers/suppliers.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></span><span class="mc-nav-label">Suppliers</span></a>
+<a class="sidebar-link" data-page="purchase" href="../purchase/purchase.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2l2.6 12.2a2 2 0 002 1.6h8.6a2 2 0 002-1.6L21 7H6"/></svg></span><span class="mc-nav-label">Purchase</span></a>
+<a class="sidebar-link" data-page="production" href="../production/production.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v6m0 8v6M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M2 12h6m8 0h6M4.93 19.07l4.24-4.24m5.66-5.66l4.24-4.24"/></svg></span><span class="mc-nav-label">Production</span></a><a class="sidebar-link active" data-page="packaging" href="../packaging/packaging.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2z"/><path d="M7 16v-4h10v4"/></svg></span><span class="mc-nav-label">Packaging</span></a>
+<a class="sidebar-link" data-page="sales" href="../sales/sales.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></span><span class="mc-nav-label">Sales</span></a>
+<a class="sidebar-link" data-page="customers" href="../customers/customers.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5a7.5 7.5 0 0115 0"/></svg></span><span class="mc-nav-label">Customers</span></a>
+<a class="sidebar-link" data-page="reports" href="../reports/reports.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9m6 10V5m6 14v-7"/></svg></span><span class="mc-nav-label">Reports</span></a>
+<a class="sidebar-link" data-page="settings" href="../settings/settings.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 008.6 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H2a2 2 0 010-4h.09A1.65 1.65 0 003.6 8.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H8a1.65 1.65 0 001-1.51V2a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V8a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span><span class="mc-nav-label">Settings</span></a>
+</nav>
+<div class="sidebar-footer mc-sidebar-footer">
+<div class="mc-sidebar-user-avatar" id="sidebar-user-avatar">—</div>
+<div class="mc-sidebar-user-info">
+<div data-user-name="" class="mc-sidebar-user-name">—</div>
+<div class="text-faint" data-user-role=""></div>
+</div>
+</div>
+</aside>
+<div class="app-main">
+<header class="mc-header">
+<div class="mc-header-left">
+<h1 class="mc-greeting" id="page-title">Packaging Management</h1>
+<div class="mc-header-meta">
+<span>Manage finished goods packaging, labeling, quality inspection and dispatch readiness.</span>
+</div>
+<div class="mc-company-name">
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"/></svg>
+Gujarat Organics Co. <span class="mc-company-sep">→</span> Belgaum, KA
+</div>
+</div>
+<div class="mc-header-right">
+<div class="mc-search">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+<input aria-label="Global search" placeholder="Search Astra..." type="text"/>
+<span class="mc-search-kbd">⌘K</span>
+</div>
+<button aria-label="Notifications" class="mc-icon-btn">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 01-3.46 0"></path></svg>
+<span class="mc-badge-dot"></span>
+</button>
+<button aria-label="Settings" class="mc-icon-btn" onclick="window.location.href='../settings/settings.html'">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 008.6 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H2a2 2 0 010-4h.09A1.65 1.65 0 003.6 8.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H8a1.65 1.65 0 001-1.51V2a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V8a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
+</button>
+<div class="mc-header-divider"></div>
+<div class="mc-avatar" id="user-avatar" title="Account">—</div>
+<button class="btn btn-ghost mc-signout" id="logout-btn">Sign out</button>
+</div>
+</header>
+
+<div class="app-content mc-content">
+
+<section class="mc-section">
+<div class="mc-section-title">Packaging Overview</div>
+<div class="kpi-grid mc-kpi-grid">
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<div class="mc-kpi-top">
+<span class="kpi-label">Packages Completed Today</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,16 10,13 20,14 30,9 40,10 50,4 60,6"></polyline></svg>
+</div>
+<span class="kpi-value" id="kpi-completed-today">—</span>
+<span class="kpi-sub up">↑ 9.3% vs yesterday</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-green">
+<div class="mc-kpi-top">
+<span class="kpi-label">Active Packaging Jobs</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,12 10,11 20,12 30,9 40,8 50,7 60,5"></polyline></svg>
+</div>
+<span class="kpi-value" id="kpi-active-jobs">—</span>
+<span class="kpi-sub neutral">across 3 lines</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-amber">
+<div class="mc-kpi-top">
+<span class="kpi-label">Pending Packaging Orders</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,4 10,6 20,5 30,9 40,10 50,14 60,16"></polyline></svg>
+</div>
+<span class="kpi-value" id="kpi-pending-orders">—</span>
+<span class="kpi-sub down">review needed</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<div class="mc-kpi-top">
+<span class="kpi-label">Packaging Efficiency</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,10 10,10 20,6 30,6 40,12 50,8 60,4"></polyline></svg>
+</div>
+<span class="kpi-value" id="kpi-efficiency">—</span>
+<span class="kpi-sub up">↑ 2.6%</span>
+</div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Quick Actions</div>
+<div class="pkg-actions">
+<button class="btn btn-primary" id="btn-start-packaging">+ Start Packaging</button>
+<button class="btn btn-ghost" id="btn-print-labels">+ Print Labels</button>
+<button class="btn btn-ghost" id="btn-complete-packaging">+ Complete Packaging</button>
+<button class="btn btn-ghost" id="btn-generate-report">+ Generate Packaging Report</button>
+</div>
+</section>
+
+<section class="mc-section mc-intelligence-section">
+<div class="mc-section-title mc-intelligence-title">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2a7 7 0 00-4 12.7V17a2 2 0 002 2h4a2 2 0 002-2v-2.3A7 7 0 0012 2z"></path><path d="M9 21h6"></path></svg>
+Astra Packaging Intelligence
+</div>
+<div class="card mc-intelligence-card">
+<div class="mc-intelligence-list" id="packaging-insights"></div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Packaging Orders</div>
+
+<div class="card pkg-toolbar-card">
+<div class="pkg-toolbar">
+<div class="pkg-search">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+<input type="text" id="order-search" placeholder="Search packaging order..." aria-label="Search packaging orders" />
+</div>
+<div class="pkg-filters">
+<select class="pkg-select" id="filter-product" aria-label="Filter by product">
+<option value="">All Products</option>
+</select>
+<select class="pkg-select" id="filter-line" aria-label="Filter by line">
+<option value="">All Lines</option>
+</select>
+<select class="pkg-select" id="filter-order-status" aria-label="Filter by status">
+<option value="">All Status</option>
+<option value="queued">Queued</option>
+<option value="running">Running</option>
+<option value="paused">Paused</option>
+<option value="completed">Completed</option>
+<option value="qc-hold">QC Hold</option>
+<option value="ready">Ready for Dispatch</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="card pkg-table-card">
+<div class="pkg-table-scroll">
+<table class="astra-table mc-table pkg-table" id="orders-table">
+<thead>
+<tr>
+<th>Packaging Order</th>
+<th>Batch Number</th>
+<th>Product</th>
+<th>Package Size</th>
+<th>Units</th>
+<th>Packaging Line</th>
+<th>Operator</th>
+<th>Start Time</th>
+<th>Completion Time</th>
+<th>Quality Status</th>
+<th>Dispatch Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="orders-tbody"></tbody>
+</table>
+</div>
+<div class="pkg-empty-state hidden" id="orders-empty-state">No packaging orders match your search.</div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Packaging Line Status</div>
+<div class="pkg-line-grid" id="line-status-grid"></div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Label Printing</div>
+<div class="pkg-label-grid">
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<span class="kpi-label">Labels Printed Today</span>
+<span class="kpi-value" id="label-printed-today">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-amber">
+<span class="kpi-label">Pending Labels</span>
+<span class="kpi-value" id="label-pending">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-green">
+<span class="kpi-label">Barcodes Generated</span>
+<span class="kpi-value" id="label-barcodes">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-green">
+<span class="kpi-label">QR Codes Generated</span>
+<span class="kpi-value" id="label-qrcodes">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<span class="kpi-label">Last Print Job</span>
+<span class="kpi-value pkg-value-small" id="label-last-job">—</span>
+</div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Quality Inspection</div>
+<div class="card pkg-table-card">
+<div class="pkg-table-scroll">
+<table class="astra-table mc-table pkg-table" id="inspection-table">
+<thead>
+<tr>
+<th>Batch</th>
+<th>Product</th>
+<th>Inspector</th>
+<th>Inspection Date</th>
+<th>Passed</th>
+<th>Rejected</th>
+<th>Remarks</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="inspection-tbody"></tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Packaging Analytics</div>
+<div class="pkg-analytics-grid">
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<span class="kpi-label">Daily Packaging Output</span>
+<span class="kpi-value" id="analytics-daily-output">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-green">
+<span class="kpi-label">Packaging Efficiency</span>
+<span class="kpi-value" id="analytics-efficiency">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-amber">
+<span class="kpi-label">Rejected Packages</span>
+<span class="kpi-value" id="analytics-rejected">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-amber">
+<span class="kpi-label">Packaging Cost</span>
+<span class="kpi-value" id="analytics-cost">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-green">
+<span class="kpi-label">Machine Utilization</span>
+<span class="kpi-value" id="analytics-utilization">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<div class="mc-kpi-top">
+<span class="kpi-label">Packaging Trend</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,16 10,14 20,12 30,10 40,8 50,7 60,5"></polyline></svg>
+</div>
+<span class="kpi-value" id="analytics-trend">—</span>
+</div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Dispatch Ready</div>
+<div class="pkg-dispatch-grid">
+<div class="kpi-card mc-kpi-card mc-accent-green">
+<span class="kpi-label">Ready Orders</span>
+<span class="kpi-value" id="dispatch-ready-orders">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-amber">
+<span class="kpi-label">Awaiting Transport</span>
+<span class="kpi-value" id="dispatch-awaiting">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<span class="kpi-label">Packed Weight</span>
+<span class="kpi-value" id="dispatch-weight">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-amber">
+<span class="kpi-label">Dispatch Priority</span>
+<span class="kpi-value pkg-value-small" id="dispatch-priority">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<span class="kpi-label">Vehicle Assigned</span>
+<span class="kpi-value pkg-value-small" id="dispatch-vehicle">—</span>
+</div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Recent Packaging Activity</div>
+<div class="card">
+<div class="mc-timeline" id="packaging-activity"></div>
+</div>
+</section>
+
+</div>
+</div>
+</div>
+
+<!-- Toast notifications -->
+<div class="pkg-toast-container" id="toast-container" aria-live="polite"></div>
+
+<script src="../../assets/js/storage.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/auth.js"></script>
+<script src="../../assets/js/app.js"></script>
+<script src="packaging.js"></script>
+</body>
+</html>

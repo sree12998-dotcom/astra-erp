@@ -1,0 +1,60 @@
+/* ===========================================================
+   ASTRA — Global styles
+   Reset + base typography. Loaded on every page, after
+   variables.css and before any page-specific CSS.
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--astra-void);
+  color: var(--astra-text);
+  font-family: var(--astra-font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--astra-font-display);
+  color: var(--astra-text-white);
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input, select, button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.mono {
+  font-family: var(--astra-font-mono);
+}
+
+.text-dim   { color: var(--astra-text-dim); }
+.text-faint { color: var(--astra-text-faint); }
+.text-amber { color: var(--astra-amber); }
+.text-green { color: var(--astra-green); }
+.text-red   { color: var(--astra-red); }
+
+.hidden { display: none !important; }

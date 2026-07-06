@@ -1,0 +1,450 @@
+/* ===========================================================
+   ASTRA — Production Management
+   Header, sidebar, KPI cards, and Astra Intelligence styling
+   come from dashboard.css (design system source), linked in
+   production.html. This file covers only what's unique to the
+   Production module: page header, toolbar, tables, batch cards,
+   machine cards, and toasts.
+   =========================================================== */
+
+.prod-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.prod-title {
+  font-family: var(--astra-font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--astra-text-white);
+}
+
+.prod-subtitle {
+  font-size: 13px;
+  color: var(--astra-text-dim);
+}
+
+.prod-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Toolbar ---------- */
+
+.prod-toolbar-card {
+  padding: 14px 16px;
+}
+
+.prod-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.prod-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 240px;
+  flex: 1;
+  max-width: 320px;
+  padding: 9px 12px;
+  border-radius: var(--astra-radius-sm);
+  background: var(--astra-panel-2);
+  border: 1px solid var(--astra-border);
+  color: var(--astra-text-faint);
+  transition: border-color 0.15s ease;
+}
+
+.prod-search:focus-within {
+  border-color: var(--astra-cyan);
+}
+
+.prod-search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--astra-text);
+  font-size: 12.5px;
+  width: 100%;
+}
+
+.prod-search input::placeholder {
+  color: var(--astra-text-faint);
+}
+
+.prod-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.prod-select {
+  background: var(--astra-panel-2);
+  border: 1px solid var(--astra-border);
+  border-radius: var(--astra-radius-sm);
+  padding: 8px 10px;
+  font-size: 12.5px;
+  color: var(--astra-text);
+}
+
+.prod-select:focus {
+  outline: none;
+  border-color: var(--astra-cyan);
+}
+
+/* ---------- Tables ---------- */
+
+.prod-table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.prod-table-scroll {
+  overflow-x: auto;
+  max-height: 560px;
+  overflow-y: auto;
+}
+
+.prod-table {
+  min-width: 1180px;
+}
+
+.prod-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--astra-panel);
+  z-index: 1;
+}
+
+.prod-table td {
+  white-space: nowrap;
+}
+
+#recipe-table {
+  min-width: 760px;
+}
+
+.prod-empty-state {
+  padding: 40px 16px;
+  text-align: center;
+  color: var(--astra-text-faint);
+  font-size: 13px;
+}
+
+/* ---------- Status pills (Production Orders) ---------- */
+
+.prod-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--astra-font-mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.prod-status-pill::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.prod-status-pill.draft     { color: var(--astra-text-faint); border-color: var(--astra-border); }
+.prod-status-pill.planned   { color: var(--astra-cyan);  border-color: rgba(0,229,255,0.3);  background: var(--astra-cyan-10); }
+.prod-status-pill.running   { color: var(--astra-green); border-color: rgba(0,217,163,0.3);  background: var(--astra-green-10); }
+.prod-status-pill.paused    { color: var(--astra-amber); border-color: rgba(255,176,32,0.3);  background: var(--astra-amber-10); }
+.prod-status-pill.completed { color: var(--astra-green); border-color: rgba(0,217,163,0.3);  background: var(--astra-green-10); }
+.prod-status-pill.cancelled { color: #FF6B6B; border-color: rgba(255,107,107,0.3); background: rgba(255,107,107,0.08); }
+
+.prod-row-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.prod-icon-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid var(--astra-border);
+  background: var(--astra-panel-2);
+  color: var(--astra-text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.prod-icon-btn:hover {
+  color: var(--astra-text-white);
+  border-color: var(--astra-text-faint);
+}
+
+/* ---------- Batch Tracking cards ---------- */
+
+.prod-batch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.prod-batch-card {
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-radius: var(--astra-radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.prod-batch-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--astra-text-faint);
+  box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.5);
+}
+
+.prod-batch-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prod-batch-id {
+  font-family: var(--astra-font-mono);
+  font-size: 13px;
+  color: var(--astra-cyan);
+}
+
+.prod-batch-stage {
+  font-size: 11px;
+  color: var(--astra-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.prod-batch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+}
+
+.prod-batch-row > span:first-child {
+  color: var(--astra-text-faint);
+}
+
+.prod-quality-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--astra-font-mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid;
+  width: fit-content;
+}
+
+.prod-quality-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.prod-quality-badge.pass    { color: var(--astra-green); border-color: rgba(0,217,163,0.3); background: var(--astra-green-10); }
+.prod-quality-badge.pending { color: var(--astra-amber); border-color: rgba(255,176,32,0.3); background: var(--astra-amber-10); }
+.prod-quality-badge.fail    { color: #FF6B6B; border-color: rgba(255,107,107,0.3); background: rgba(255,107,107,0.08); }
+
+/* ---------- Machine Status cards ---------- */
+
+.prod-machine-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.prod-machine-card {
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-radius: var(--astra-radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.prod-machine-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--astra-text-faint);
+}
+
+.prod-machine-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prod-machine-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--astra-text-white);
+}
+
+.prod-machine-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--astra-font-mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.prod-machine-status::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.prod-machine-status.running     { color: var(--astra-green); border-color: rgba(0,217,163,0.3); background: var(--astra-green-10); }
+.prod-machine-status.idle        { color: var(--astra-text-dim); border-color: var(--astra-border); }
+.prod-machine-status.maintenance { color: var(--astra-amber); border-color: rgba(255,176,32,0.3); background: var(--astra-amber-10); }
+.prod-machine-status.offline     { color: #FF6B6B; border-color: rgba(255,107,107,0.3); background: rgba(255,107,107,0.08); }
+
+.prod-machine-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+}
+
+.prod-machine-row > span:first-child {
+  color: var(--astra-text-faint);
+}
+
+/* ---------- Analytics / QC grids ---------- */
+
+.prod-analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.prod-qc-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+/* ---------- Toast notifications ---------- */
+
+.prod-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 60;
+}
+
+.prod-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 260px;
+  max-width: 360px;
+  padding: 13px 16px;
+  border-radius: var(--astra-radius-md);
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-left: 3px solid var(--astra-cyan);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+  font-size: 12.5px;
+  color: var(--astra-text);
+  transform: translateX(16px);
+  opacity: 0;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease;
+}
+
+.prod-toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.prod-toast.success { border-left-color: var(--astra-green); }
+.prod-toast.info     { border-left-color: var(--astra-cyan); }
+.prod-toast.warning   { border-left-color: var(--astra-amber); }
+
+.prod-toast-icon {
+  flex-shrink: 0;
+  display: flex;
+}
+
+.prod-toast.success .prod-toast-icon { color: var(--astra-green); }
+.prod-toast.info .prod-toast-icon     { color: var(--astra-cyan); }
+.prod-toast.warning .prod-toast-icon   { color: var(--astra-amber); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1180px) {
+  .prod-batch-grid,
+  .prod-machine-grid,
+  .prod-analytics-grid,
+  .prod-qc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .prod-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .prod-search {
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .prod-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .prod-batch-grid,
+  .prod-machine-grid,
+  .prod-analytics-grid,
+  .prod-qc-grid {
+    grid-template-columns: 1fr;
+  }
+  .prod-toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+  .prod-toast {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prod-toast {
+    transition: none !important;
+  }
+}

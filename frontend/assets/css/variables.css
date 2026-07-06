@@ -1,0 +1,50 @@
+/* ===========================================================
+   ASTRA — Design Tokens
+   Every page includes this file first. Change the look of the
+   entire product by editing values here, not in individual pages.
+   =========================================================== */
+
+:root {
+  /* Core palette */
+  --astra-void:      #0A0E14;   /* page background */
+  --astra-panel:     #12182A;   /* card / panel background */
+  --astra-panel-2:   #0F1524;   /* nested panel background */
+  --astra-border:    #1E2740;
+
+  /* Signal colors */
+  --astra-cyan:       #00E5FF;  /* primary action / brand */
+  --astra-cyan-10:     rgba(0, 229, 255, 0.10);
+  --astra-green:      #00D9A3;  /* healthy / profit / success */
+  --astra-green-10:    rgba(0, 217, 163, 0.10);
+  --astra-amber:      #FFB020;  /* alerts / expiry / low stock */
+  --astra-amber-10:    rgba(255, 176, 32, 0.10);
+  --astra-red:        #FF6B6B;  /* errors */
+
+  /* Text */
+  --astra-text:        #D7DEEB;  /* primary text on dark */
+  --astra-text-dim:    #8B96AB;  /* secondary text */
+  --astra-text-faint:  #3A4B66;  /* labels, placeholders */
+  --astra-text-white:  #FFFFFF;
+
+  /* Type */
+  --astra-font-display: 'Sora', sans-serif;
+  --astra-font-body:    'Inter', sans-serif;
+  --astra-font-mono:    'JetBrains Mono', monospace;
+
+  /* Spacing scale */
+  --astra-space-1: 4px;
+  --astra-space-2: 8px;
+  --astra-space-3: 12px;
+  --astra-space-4: 16px;
+  --astra-space-5: 24px;
+  --astra-space-6: 32px;
+
+  /* Radius */
+  --astra-radius-sm: 6px;
+  --astra-radius-md: 8px;
+  --astra-radius-lg: 12px;
+
+  /* Layout */
+  --astra-sidebar-width: 220px;
+  --astra-topbar-height: 56px;
+}

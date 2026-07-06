@@ -1,0 +1,185 @@
+/* ===========================================================
+   ASTRA — Reports & Analytics
+   Header, sidebar, KPI cards, and Astra Intelligence styling
+   come from dashboard.css (design system source). This file
+   covers only what's unique to the Reports module.
+   =========================================================== */
+
+.rep-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rep-title {
+  font-family: var(--astra-font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--astra-text-white);
+}
+
+.rep-subtitle {
+  font-size: 13px;
+  color: var(--astra-text-dim);
+}
+
+.rep-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Report categories ---------- */
+
+.rep-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.rep-category-card {
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-radius: var(--astra-radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.rep-category-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--astra-text-faint);
+  box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.5);
+}
+
+.rep-category-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--astra-cyan-10);
+  color: var(--astra-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rep-category-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--astra-text-white);
+}
+
+.rep-category-desc {
+  font-size: 12px;
+  color: var(--astra-text-dim);
+  line-height: 1.5;
+}
+
+.rep-category-meta {
+  font-size: 11px;
+  color: var(--astra-text-faint);
+  margin-top: auto;
+}
+
+/* ---------- Table ---------- */
+
+.rep-table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.rep-table-scroll {
+  overflow-x: auto;
+}
+
+.rep-table {
+  min-width: 780px;
+}
+
+.rep-table td {
+  white-space: nowrap;
+}
+
+/* ---------- Toast notifications ---------- */
+
+.rep-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 60;
+}
+
+.rep-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 260px;
+  max-width: 360px;
+  padding: 13px 16px;
+  border-radius: var(--astra-radius-md);
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-left: 3px solid var(--astra-cyan);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+  font-size: 12.5px;
+  color: var(--astra-text);
+  transform: translateX(16px);
+  opacity: 0;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease;
+}
+
+.rep-toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.rep-toast.success { border-left-color: var(--astra-green); }
+.rep-toast.info     { border-left-color: var(--astra-cyan); }
+.rep-toast.warning   { border-left-color: var(--astra-amber); }
+
+.rep-toast-icon {
+  flex-shrink: 0;
+  display: flex;
+}
+
+.rep-toast.success .rep-toast-icon { color: var(--astra-green); }
+.rep-toast.info .rep-toast-icon     { color: var(--astra-cyan); }
+.rep-toast.warning .rep-toast-icon   { color: var(--astra-amber); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1180px) {
+  .rep-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .rep-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .rep-category-grid {
+    grid-template-columns: 1fr;
+  }
+  .rep-toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+  .rep-toast {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rep-toast {
+    transition: none !important;
+  }
+}

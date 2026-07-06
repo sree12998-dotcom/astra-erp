@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>if(!localStorage.getItem("astra_token")){location.replace("../login/login.html");}</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Astra — Customer Management</title>
+<link href="../../assets/css/variables.css" rel="stylesheet"/>
+<link href="../../assets/css/global.css" rel="stylesheet"/>
+<link href="../../assets/css/layout.css" rel="stylesheet"/>
+<link href="../../assets/css/sidebar.css" rel="stylesheet"/>
+<link href="../../assets/css/cards.css" rel="stylesheet"/>
+<link href="../../assets/css/tables.css" rel="stylesheet"/>
+<link href="../../assets/css/buttons.css" rel="stylesheet"/>
+<link href="../../assets/css/forms.css" rel="stylesheet"/>
+<link href="../dashboard/dashboard.css" rel="stylesheet"/>
+<link href="customers.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar mc-sidebar">
+<div class="sidebar-brand">
+<div class="sidebar-brand-mark">A</div>
+<span class="sidebar-brand-name">ASTRA</span>
+</div>
+<nav class="sidebar-nav mc-sidebar-nav">
+<a class="sidebar-link" data-page="dashboard" href="../dashboard/dashboard.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span><span class="mc-nav-label">Command Center</span></a>
+<a class="sidebar-link" data-page="inventory" href="../inventory/inventory.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span><span class="mc-nav-label">Inventory</span></a>
+<a class="sidebar-link" data-page="suppliers" href="../suppliers/suppliers.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></span><span class="mc-nav-label">Suppliers</span></a>
+<a class="sidebar-link" data-page="purchase" href="../purchase/purchase.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2l2.6 12.2a2 2 0 002 1.6h8.6a2 2 0 002-1.6L21 7H6"/></svg></span><span class="mc-nav-label">Purchase</span></a>
+<a class="sidebar-link" data-page="production" href="../production/production.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v6m0 8v6M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M2 12h6m8 0h6M4.93 19.07l4.24-4.24m5.66-5.66l4.24-4.24"/></svg></span><span class="mc-nav-label">Production</span></a><a class="sidebar-link" data-page="packaging" href="../packaging/packaging.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2z"/><path d="M7 16v-4h10v4"/></svg></span><span class="mc-nav-label">Packaging</span></a>
+<a class="sidebar-link" data-page="sales" href="../sales/sales.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></span><span class="mc-nav-label">Sales</span></a>
+<a class="sidebar-link active" data-page="customers" href="../customers/customers.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5a7.5 7.5 0 0115 0"/></svg></span><span class="mc-nav-label">Customers</span></a>
+<a class="sidebar-link" data-page="reports" href="../reports/reports.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9m6 10V5m6 14v-7"/></svg></span><span class="mc-nav-label">Reports</span></a>
+<a class="sidebar-link" data-page="settings" href="../settings/settings.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 008.6 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H2a2 2 0 010-4h.09A1.65 1.65 0 003.6 8.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H8a1.65 1.65 0 001-1.51V2a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V8a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span><span class="mc-nav-label">Settings</span></a>
+</nav>
+<div class="sidebar-footer mc-sidebar-footer">
+<div class="mc-sidebar-user-avatar" id="sidebar-user-avatar">—</div>
+<div class="mc-sidebar-user-info">
+<div data-user-name="" class="mc-sidebar-user-name">—</div>
+<div class="text-faint" data-user-role=""></div>
+</div>
+</div>
+</aside>
+<div class="app-main">
+<header class="mc-header">
+<div class="mc-header-left">
+<h1 class="mc-greeting" id="page-title">Customer Management</h1>
+<div class="mc-header-meta">
+<span>Manage customer records, order history and outstanding receivables.</span>
+</div>
+<div class="mc-company-name">
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"/></svg>
+Gujarat Organics Co. <span class="mc-company-sep">→</span> Belgaum, KA
+</div>
+</div>
+<div class="mc-header-right">
+<div class="mc-search">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+<input aria-label="Global search" placeholder="Search Astra..." type="text"/>
+<span class="mc-search-kbd">⌘K</span>
+</div>
+<button aria-label="Notifications" class="mc-icon-btn">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 01-3.46 0"></path></svg>
+<span class="mc-badge-dot"></span>
+</button>
+<button aria-label="Settings" class="mc-icon-btn" onclick="window.location.href='../settings/settings.html'">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 008.6 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H2a2 2 0 010-4h.09A1.65 1.65 0 003.6 8.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H8a1.65 1.65 0 001-1.51V2a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V8a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
+</button>
+<div class="mc-header-divider"></div>
+<div class="mc-avatar" id="user-avatar" title="Account">—</div>
+<button class="btn btn-ghost mc-signout" id="logout-btn">Sign out</button>
+</div>
+</header>
+
+<div class="app-content mc-content">
+
+<section class="mc-section">
+<div class="mc-section-title">Customer Overview</div>
+<div class="kpi-grid mc-kpi-grid">
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<div class="mc-kpi-top">
+<span class="kpi-label">Total Customers</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,16 10,13 20,14 30,9 40,10 50,4 60,6"></polyline></svg>
+</div>
+<span class="kpi-value" id="kpi-total-customers">—</span>
+<span class="kpi-sub neutral">across 3 channels</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-green">
+<div class="mc-kpi-top">
+<span class="kpi-label">Active Customers</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,12 10,11 20,12 30,9 40,8 50,7 60,5"></polyline></svg>
+</div>
+<span class="kpi-value" id="kpi-active-customers">—</span>
+<span class="kpi-sub up">↑ steady</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<div class="mc-kpi-top">
+<span class="kpi-label">New This Month</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,10 10,10 20,6 30,6 40,12 50,8 60,4"></polyline></svg>
+</div>
+<span class="kpi-value" id="kpi-new-customers">—</span>
+<span class="kpi-sub up">↑ 4 new</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-amber">
+<div class="mc-kpi-top">
+<span class="kpi-label">Outstanding Receivables</span>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,4 10,6 20,5 30,9 40,10 50,14 60,16"></polyline></svg>
+</div>
+<span class="kpi-value" id="kpi-outstanding">—</span>
+<span class="kpi-sub down">review needed</span>
+</div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Quick Actions</div>
+<div class="cust-actions">
+<button class="btn btn-primary" id="btn-add-customer">+ Add Customer</button>
+<button class="btn btn-ghost" id="btn-record-payment">+ Record Payment</button>
+<button class="btn btn-ghost" id="btn-order-history">+ View Order History</button>
+<button class="btn btn-ghost" id="btn-export-list">+ Export Customer List</button>
+</div>
+</section>
+
+<section class="mc-section mc-intelligence-section">
+<div class="mc-section-title mc-intelligence-title">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2a7 7 0 00-4 12.7V17a2 2 0 002 2h4a2 2 0 002-2v-2.3A7 7 0 0012 2z"></path><path d="M9 21h6"></path></svg>
+Astra Customer Intelligence
+</div>
+<div class="card mc-intelligence-card">
+<div class="mc-intelligence-list" id="customer-insights"></div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Segments</div>
+<div class="cust-segment-grid" id="segment-grid"></div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Customer Directory</div>
+
+<div class="card cust-toolbar-card">
+<div class="cust-toolbar">
+<div class="cust-search">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+<input type="text" id="search-input" placeholder="Search customer..." aria-label="Search customer" />
+</div>
+<div class="cust-filters">
+<select class="cust-select" id="filter-channel" aria-label="Filter by channel">
+<option value="">All Channels</option>
+<option value="ecommerce">E-commerce</option>
+<option value="retailer">Retailer</option>
+<option value="direct">Direct Consumer</option>
+</select>
+<select class="cust-select" id="filter-status" aria-label="Filter by status">
+<option value="">All Status</option>
+<option value="active">Active</option>
+<option value="inactive">Inactive</option>
+</select>
+<button class="cust-filter-chip" id="filter-outstanding" type="button">Outstanding Payments</button>
+</div>
+</div>
+</div>
+
+<div class="card cust-table-card">
+<div class="cust-table-scroll">
+<table class="astra-table mc-table cust-table" id="customers-table">
+<thead>
+<tr>
+<th>Customer Name</th>
+<th>Code</th>
+<th>Contact</th>
+<th>City</th>
+<th>Channel</th>
+<th>Total Orders</th>
+<th>Outstanding</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="customers-tbody"></tbody>
+</table>
+</div>
+<div class="cust-empty-state hidden" id="empty-state">No customers match your search.</div>
+</div>
+</section>
+
+<section class="mc-section">
+<div class="mc-section-title">Recent Activity</div>
+<div class="card">
+<div class="mc-timeline" id="customer-activity"></div>
+</div>
+</section>
+
+</div>
+</div>
+</div>
+
+
+<div class="cust-overlay" id="drawer-overlay"></div>
+<aside class="cust-drawer" id="customer-drawer" aria-hidden="true">
+<div class="cust-drawer-header">
+<div>
+<div class="cust-drawer-name" id="drawer-name">—</div>
+<div class="cust-drawer-code mono" id="drawer-code">—</div>
+</div>
+<button class="cust-icon-btn" id="drawer-close" aria-label="Close">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+</button>
+</div>
+<div class="cust-drawer-body">
+<div class="cust-drawer-section">
+<div class="cust-drawer-section-title">Customer Information</div>
+<div class="cust-drawer-row"><span>Contact Person</span><span id="drawer-contact">—</span></div>
+<div class="cust-drawer-row"><span>Phone</span><span id="drawer-phone">—</span></div>
+<div class="cust-drawer-row"><span>Email</span><span id="drawer-email">—</span></div>
+<div class="cust-drawer-row"><span>Channel</span><span id="drawer-channel">—</span></div>
+<div class="cust-drawer-row"><span>Status</span><span id="drawer-status">—</span></div>
+</div>
+<div class="cust-drawer-section">
+<div class="cust-drawer-section-title">Address</div>
+<div class="cust-drawer-row"><span>Address</span><span id="drawer-address">—</span></div>
+<div class="cust-drawer-row"><span>City</span><span id="drawer-city">—</span></div>
+</div>
+<div class="cust-drawer-section">
+<div class="cust-drawer-section-title">Order History</div>
+<div class="cust-drawer-list" id="drawer-orders"></div>
+</div>
+<div class="cust-drawer-section">
+<div class="cust-drawer-section-title">Outstanding Payments</div>
+<div class="cust-drawer-outstanding" id="drawer-outstanding">—</div>
+</div>
+<div class="cust-drawer-section">
+<div class="cust-drawer-section-title">Notes</div>
+<p class="cust-drawer-notes" id="drawer-notes">—</p>
+</div>
+</div>
+</aside>
+
+<!-- Add Customer modal -->
+<div class="cust-overlay" id="modal-overlay"></div>
+<div class="cust-modal" id="add-customer-modal" role="dialog" aria-modal="true" aria-hidden="true">
+<div class="cust-modal-header">
+<h2>Add Customer</h2>
+<button class="cust-icon-btn" id="modal-close" aria-label="Close">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+</button>
+</div>
+<form id="add-customer-form" class="cust-modal-body">
+<div class="cust-form-grid">
+<div class="form-group">
+<label class="form-label" for="f-name">Customer Name</label>
+<input class="form-input" id="f-name" name="name" required />
+</div>
+<div class="form-group">
+<label class="form-label" for="f-contact">Contact Person</label>
+<input class="form-input" id="f-contact" name="contact" />
+</div>
+<div class="form-group">
+<label class="form-label" for="f-phone">Phone</label>
+<input class="form-input" id="f-phone" name="phone" required />
+</div>
+<div class="form-group">
+<label class="form-label" for="f-email">Email</label>
+<input class="form-input" type="email" id="f-email" name="email" />
+</div>
+<div class="form-group cust-form-span2">
+<label class="form-label" for="f-address">Address</label>
+<input class="form-input" id="f-address" name="address" />
+</div>
+<div class="form-group">
+<label class="form-label" for="f-city">City</label>
+<input class="form-input" id="f-city" name="city" required />
+</div>
+<div class="form-group">
+<label class="form-label" for="f-channel">Channel</label>
+<select class="form-input" id="f-channel" name="channel">
+<option value="ecommerce">E-commerce</option>
+<option value="retailer">Retailer</option>
+<option value="direct">Direct Consumer</option>
+</select>
+</div>
+<div class="form-group cust-form-span2">
+<label class="form-label" for="f-notes">Notes</label>
+<textarea class="form-input cust-textarea" id="f-notes" name="notes" rows="3"></textarea>
+</div>
+</div>
+<div class="cust-modal-footer">
+<button type="button" class="btn btn-ghost" id="modal-cancel">Cancel</button>
+<button type="submit" class="btn btn-primary">Save</button>
+</div>
+</form>
+</div>
+
+<div class="cust-toast-container" id="toast-container" aria-live="polite"></div>
+
+<script src="../../assets/js/storage.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/auth.js"></script>
+<script src="../../assets/js/app.js"></script>
+<script src="customers.js"></script>
+</body>
+</html>

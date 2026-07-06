@@ -1,0 +1,75 @@
+/* ASTRA — Sidebar */
+
+.sidebar {
+  width: var(--astra-sidebar-width);
+  height: 100vh;
+  border-right: 1px solid var(--astra-border);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 12px;
+  flex-shrink: 0;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  margin-bottom: 32px;
+}
+
+.sidebar-brand-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--astra-cyan), var(--astra-green));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--astra-void);
+  font-weight: 700;
+  font-family: var(--astra-font-display);
+  font-size: 14px;
+}
+
+.sidebar-brand-name {
+  font-family: var(--astra-font-display);
+  font-size: 15px;
+  color: var(--astra-text-white);
+  letter-spacing: 0.02em;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--astra-text-faint);
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.sidebar-link:hover {
+  color: var(--astra-text);
+}
+
+.sidebar-link.active {
+  background: var(--astra-panel);
+  color: var(--astra-text-white);
+  border: 1px solid var(--astra-border);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 12px 8px 0;
+  border-top: 1px solid var(--astra-border);
+  font-size: 11px;
+  color: var(--astra-text-faint);
+}

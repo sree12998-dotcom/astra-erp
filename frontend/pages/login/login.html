@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astra — Sign in</title>
+  <link rel="stylesheet" href="../../assets/css/variables.css" />
+  <link rel="stylesheet" href="../../assets/css/global.css" />
+  <link rel="stylesheet" href="../../assets/css/buttons.css" />
+  <link rel="stylesheet" href="../../assets/css/forms.css" />
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+
+  <div class="login-screen">
+    <div class="login-bg" aria-hidden="true">
+      <div class="login-bg-orb login-bg-orb-1"></div>
+      <div class="login-bg-orb login-bg-orb-2"></div>
+      <div class="login-bg-grid"></div>
+    </div>
+
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="login-brand-mark" aria-hidden="true">
+          <span class="mark-layer mark-layer-1"></span>
+          <span class="mark-layer mark-layer-2"></span>
+          <span class="mark-layer mark-layer-3"></span>
+        </div>
+        <span class="login-brand-name">ASTRA</span>
+      </div>
+
+      <h1 class="login-heading">Welcome back</h1>
+      <p class="login-subtitle">Sign in to your operations dashboard</p>
+
+      <form id="login-form" class="login-form">
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input class="form-input" type="password" id="password" name="password" placeholder="••••••••" required autocomplete="current-password" />
+        </div>
+
+        <div class="login-row">
+          <label class="checkbox">
+            <input type="checkbox" id="remember-me" />
+            <span class="checkbox-box" aria-hidden="true">
+              <svg class="checkbox-tick" viewBox="0 0 16 16" width="10" height="10">
+                <path d="M2.5 8.5L6 12l7.5-7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="checkbox-label">Remember me</span>
+          </label>
+        </div>
+
+        <div id="login-error" class="form-error" role="alert"></div>
+        <button type="submit" class="btn btn-primary btn-block" id="login-submit">Sign in</button>
+      </form>
+
+      <div class="login-demo-block">
+        <div class="login-demo-hint">
+          Demo credentials: <span class="mono">demo@astra.app</span> / <span class="mono">demo1234</span>
+        </div>
+        <button type="button" class="btn btn-ghost btn-block" id="demo-mode-btn">Continue in Demo Mode</button>
+      </div>
+
+      <div class="login-footnote">Gujarat Organics Co. → Belgaum, KA</div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/storage.js"></script>
+  <script src="../../assets/js/api.js"></script>
+  <script src="../../assets/js/auth.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+/* ===========================================================
+   ASTRA — Settings
+   Header, sidebar, and KPI/card base styling come from
+   dashboard.css (design system source). This file covers only
+   what's unique to the Settings module.
+   =========================================================== */
+
+.set-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.set-title {
+  font-family: var(--astra-font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--astra-text-white);
+}
+
+.set-subtitle {
+  font-size: 13px;
+  color: var(--astra-text-dim);
+}
+
+.set-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Company profile ---------- */
+
+.set-profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.set-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.set-form-span2 {
+  grid-column: span 2;
+}
+
+.set-profile-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ---------- Users table ---------- */
+
+.set-table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.set-table-scroll {
+  overflow-x: auto;
+}
+
+.set-table {
+  min-width: 760px;
+}
+
+.set-table td {
+  white-space: nowrap;
+}
+
+.set-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--astra-font-mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid;
+  color: var(--astra-cyan);
+  border-color: rgba(0, 229, 255, 0.3);
+  background: var(--astra-cyan-10);
+}
+
+.set-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--astra-font-mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.set-status-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.set-status-badge.active   { color: var(--astra-green); border-color: rgba(0,217,163,0.3); background: var(--astra-green-10); }
+.set-status-badge.inactive { color: var(--astra-text-faint); border-color: var(--astra-border); background: transparent; }
+
+.set-icon-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid var(--astra-border);
+  background: var(--astra-panel-2);
+  color: var(--astra-text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.set-icon-btn:hover {
+  color: var(--astra-text-white);
+  border-color: var(--astra-text-faint);
+}
+
+/* ---------- Roles & permissions ---------- */
+
+.set-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.set-role-card {
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-radius: var(--astra-radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.set-role-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--astra-text-faint);
+}
+
+.set-role-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--astra-text-white);
+}
+
+.set-role-scope {
+  font-size: 12px;
+  color: var(--astra-text-dim);
+  line-height: 1.5;
+}
+
+/* ---------- Notification toggles ---------- */
+
+.set-toggle-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.set-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--astra-border);
+}
+
+.set-toggle-row:last-child {
+  border-bottom: none;
+}
+
+.set-toggle-label {
+  font-size: 13px;
+  color: var(--astra-text);
+}
+
+.set-toggle-sub {
+  font-size: 11.5px;
+  color: var(--astra-text-faint);
+  margin-top: 2px;
+}
+
+.set-switch {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.set-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.set-switch-track {
+  display: block;
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--astra-border);
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.set-switch-track::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--astra-text-white);
+  transition: transform 0.18s ease;
+}
+
+.set-switch input:checked + .set-switch-track {
+  background: var(--astra-cyan);
+}
+
+.set-switch input:checked + .set-switch-track::after {
+  transform: translateX(18px);
+}
+
+/* ---------- Integrations ---------- */
+
+.set-integration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.set-integration-card {
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-radius: var(--astra-radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.set-integration-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--astra-text-faint);
+}
+
+.set-integration-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.set-integration-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--astra-text-white);
+}
+
+.set-integration-desc {
+  font-size: 12px;
+  color: var(--astra-text-dim);
+  line-height: 1.5;
+}
+
+.set-integration-status {
+  font-family: var(--astra-font-mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.set-integration-status.connected    { color: var(--astra-green); border-color: rgba(0,217,163,0.3); background: var(--astra-green-10); }
+.set-integration-status.disconnected { color: var(--astra-text-faint); border-color: var(--astra-border); }
+
+/* ---------- Security ---------- */
+
+.set-security-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.set-security-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--astra-border);
+}
+
+.set-security-row:last-child {
+  border-bottom: none;
+}
+
+.set-security-label {
+  font-size: 13px;
+  color: var(--astra-text);
+}
+
+.set-security-sub {
+  font-size: 11.5px;
+  color: var(--astra-text-faint);
+  margin-top: 2px;
+}
+
+/* ---------- Toast notifications ---------- */
+
+.set-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 60;
+}
+
+.set-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 260px;
+  max-width: 360px;
+  padding: 13px 16px;
+  border-radius: var(--astra-radius-md);
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-left: 3px solid var(--astra-cyan);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+  font-size: 12.5px;
+  color: var(--astra-text);
+  transform: translateX(16px);
+  opacity: 0;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease;
+}
+
+.set-toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.set-toast.success { border-left-color: var(--astra-green); }
+.set-toast.info     { border-left-color: var(--astra-cyan); }
+.set-toast.warning   { border-left-color: var(--astra-amber); }
+
+.set-toast-icon {
+  flex-shrink: 0;
+  display: flex;
+}
+
+.set-toast.success .set-toast-icon { color: var(--astra-green); }
+.set-toast.info .set-toast-icon     { color: var(--astra-cyan); }
+.set-toast.warning .set-toast-icon   { color: var(--astra-amber); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1180px) {
+  .set-roles-grid,
+  .set-integration-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .set-profile-grid {
+    grid-template-columns: 1fr;
+  }
+  .set-form-span2 {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .set-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .set-roles-grid,
+  .set-integration-grid {
+    grid-template-columns: 1fr;
+  }
+  .set-security-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .set-toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+  .set-toast {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .set-toast {
+    transition: none !important;
+  }
+}

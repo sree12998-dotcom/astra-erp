@@ -1,0 +1,25 @@
+/* ASTRA — Top bar */
+
+.topbar {
+  height: var(--astra-topbar-height);
+  border-bottom: 1px solid var(--astra-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  flex-shrink: 0;
+}
+
+.topbar-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--astra-text-dim);
+}
+
+.topbar-breadcrumb .active {
+  color: var(--astra-text-white);
+  font-family: var(--astra-font-display);
+  font-weight: 600;
+}

@@ -1,0 +1,55 @@
+/* ASTRA — Cards / KPI tiles */
+
+.card {
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-radius: var(--astra-radius-md);
+  padding: var(--astra-space-4);
+}
+
+.card-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--astra-text-faint);
+  margin-bottom: var(--astra-space-2);
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--astra-space-4);
+}
+
+.kpi-card {
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-radius: var(--astra-radius-md);
+  padding: var(--astra-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--astra-space-2);
+}
+
+.kpi-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--astra-text-faint);
+}
+
+.kpi-value {
+  font-family: var(--astra-font-display);
+  font-size: 24px;
+  color: var(--astra-text-white);
+}
+
+.kpi-sub {
+  font-family: var(--astra-font-mono);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.kpi-sub.up   { color: var(--astra-green); }
+.kpi-sub.down { color: var(--astra-red); }

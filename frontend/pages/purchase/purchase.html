@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>if(!localStorage.getItem("astra_token")){location.replace("../login/login.html");}</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Astra — Purchase Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="../../assets/css/variables.css" rel="stylesheet"/>
+<link href="../../assets/css/global.css" rel="stylesheet"/>
+<link href="../../assets/css/layout.css" rel="stylesheet"/>
+<link href="../../assets/css/sidebar.css" rel="stylesheet"/>
+<link href="../../assets/css/cards.css" rel="stylesheet"/>
+<link href="../../assets/css/tables.css" rel="stylesheet"/>
+<link href="../../assets/css/buttons.css" rel="stylesheet"/>
+<link href="purchase.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar mc-sidebar">
+<div class="sidebar-brand">
+<div class="sidebar-brand-mark">A</div>
+<span class="sidebar-brand-name">ASTRA</span>
+</div>
+<nav class="sidebar-nav mc-sidebar-nav">
+<a class="sidebar-link" data-page="dashboard" href="../dashboard/dashboard.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span><span class="mc-nav-label">Command Center</span></a>
+<a class="sidebar-link" data-page="inventory" href="../inventory/inventory.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span><span class="mc-nav-label">Inventory</span></a>
+<a class="sidebar-link" data-page="suppliers" href="../suppliers/suppliers.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></span><span class="mc-nav-label">Suppliers</span></a>
+<a class="sidebar-link active" data-page="purchase" href="../purchase/purchase.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2l2.6 12.2a2 2 0 002 1.6h8.6a2 2 0 002-1.6L21 7H6"/></svg></span><span class="mc-nav-label">Purchase</span></a>
+<a class="sidebar-link" data-page="production" href="../production/production.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v6m0 8v6M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M2 12h6m8 0h6M4.93 19.07l4.24-4.24m5.66-5.66l4.24-4.24"/></svg></span><span class="mc-nav-label">Production</span></a><a class="sidebar-link" data-page="packaging" href="../packaging/packaging.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2z"/><path d="M7 16v-4h10v4"/></svg></span><span class="mc-nav-label">Packaging</span></a>
+<a class="sidebar-link" data-page="sales" href="../sales/sales.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></span><span class="mc-nav-label">Sales</span></a>
+<a class="sidebar-link" data-page="customers" href="../customers/customers.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20.5a7.5 7.5 0 0115 0"/></svg></span><span class="mc-nav-label">Customers</span></a>
+<a class="sidebar-link" data-page="reports" href="../reports/reports.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9m6 10V5m6 14v-7"/></svg></span><span class="mc-nav-label">Reports</span></a>
+<a class="sidebar-link" data-page="settings" href="../settings/settings.html"><span class="mc-nav-indicator"></span><span class="mc-nav-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 008.6 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H2a2 2 0 010-4h.09A1.65 1.65 0 003.6 8.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H8a1.65 1.65 0 001-1.51V2a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V8a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span><span class="mc-nav-label">Settings</span></a>
+</nav>
+<div class="sidebar-footer mc-sidebar-footer">
+<div class="mc-sidebar-user-avatar" id="sidebar-user-avatar">—</div>
+<div class="mc-sidebar-user-info">
+<div data-user-name="" class="mc-sidebar-user-name">—</div>
+<div class="text-faint" data-user-role=""></div>
+</div>
+</div>
+</aside>
+<div class="app-main">
+<header class="mc-header">
+<div class="mc-header-left">
+<h1 class="mc-greeting" id="page-title">Purchase Management</h1>
+<div class="mc-header-meta">
+<span>Manage purchase orders, supplier procurement, goods receipt and purchasing analytics.</span>
+</div>
+<div class="mc-company-name">
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"/></svg>
+Gujarat Organics Co. <span class="mc-company-sep">→</span> Belgaum, KA
+</div>
+</div>
+<div class="mc-header-right">
+<div class="mc-search">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+<input aria-label="Global search" placeholder="Search Astra..." type="text"/>
+<span class="mc-search-kbd">⌘K</span>
+</div>
+<button aria-label="Notifications" class="mc-icon-btn">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 01-3.46 0"></path></svg>
+<span class="mc-badge-dot"></span>
+</button>
+<button aria-label="Settings" class="mc-icon-btn" onclick="window.location.href='../settings/settings.html'">
+<svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 008.6 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H2a2 2 0 010-4h.09A1.65 1.65 0 003.6 8.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H8a1.65 1.65 0 001-1.51V2a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V8a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
+</button>
+<div class="mc-header-divider"></div>
+<div class="mc-avatar" id="user-avatar" title="Account">—</div>
+<button class="btn btn-ghost mc-signout" id="logout-btn">Sign out</button>
+</div>
+</header>
+<div class="app-content mc-content">
+
+<!-- SECTION 1 — Purchase Overview -->
+<section class="mc-section">
+<div class="mc-section-title">Purchase Overview</div>
+<div class="kpi-grid mc-kpi-grid">
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<div class="mc-kpi-top">
+<div class="inv-kpi-top-left">
+<span class="inv-kpi-icon" style="background:var(--mc-cyan-10);color:var(--mc-cyan)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2l2.6 12.2a2 2 0 002 1.6h8.6a2 2 0 002-1.6L21 7H6"/></svg></span>
+<span class="kpi-label">Total Purchase Value</span>
+</div>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,15 10,13 20,14 30,9 40,10 50,5 60,6"></polyline></svg>
+</div>
+<span class="kpi-value" id="pur-kpi-value">—</span>
+<span class="kpi-sub up" id="pur-kpi-value-sub">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-amber">
+<div class="mc-kpi-top">
+<div class="inv-kpi-top-left">
+<span class="inv-kpi-icon" style="background:var(--mc-amber-10);color:var(--mc-amber)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h6"/></svg></span>
+<span class="kpi-label">Open Purchase Orders</span>
+</div>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,10 10,9 20,11 30,8 40,9 50,6 60,7"></polyline></svg>
+</div>
+<span class="kpi-value" id="pur-kpi-openpo">—</span>
+<span class="kpi-sub neutral" id="pur-kpi-openpo-sub">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-green">
+<div class="mc-kpi-top">
+<div class="inv-kpi-top-left">
+<span class="inv-kpi-icon" style="background:var(--mc-green-10);color:var(--mc-green)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></span>
+<span class="kpi-label">Goods Received Today</span>
+</div>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,14 10,12 20,13 30,9 40,10 50,7 60,8"></polyline></svg>
+</div>
+<span class="kpi-value" id="pur-kpi-grn">—</span>
+<span class="kpi-sub up" id="pur-kpi-grn-sub">—</span>
+</div>
+<div class="kpi-card mc-kpi-card mc-accent-cyan">
+<div class="mc-kpi-top">
+<div class="inv-kpi-top-left">
+<span class="inv-kpi-icon" style="background:var(--mc-cyan-10);color:var(--mc-cyan)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+<span class="kpi-label">Pending Supplier Deliveries</span>
+</div>
+<svg class="mc-sparkline" preserveaspectratio="none" viewbox="0 0 60 20"><polyline points="0,6 10,8 20,7 30,11 40,12 50,16 60,17"></polyline></svg>
+</div>
+<span class="kpi-value" id="pur-kpi-pending">—</span>
+<span class="kpi-sub down" id="pur-kpi-pending-sub">—</span>
+</div>
+</div>
+</section>
+
+<!-- SECTION 2 — Quick Actions -->
+<section class="mc-section">
+<div class="mc-section-title">Quick Actions</div>
+<div class="inv-quick-actions">
+<button class="btn inv-action-btn inv-action-cyan" id="qa-create-po">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+Create Purchase Order
+</button>
+<button class="btn inv-action-btn inv-action-blue" id="qa-receive-goods">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+Receive Goods (GRN)
+</button>
+<button class="btn inv-action-btn inv-action-amber" id="qa-record-invoice">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h6"/></svg>
+Record Supplier Invoice
+</button>
+<button class="btn btn-ghost inv-action-btn" id="qa-export-report">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>
+Export Purchase Report
+</button>
+</div>
+</section>
+
+<!-- SECTION 3 — ASTRA Purchase Intelligence -->
+<section class="mc-section mc-intelligence-section">
+<div class="mc-section-title mc-intelligence-title">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M12 2a7 7 0 00-4 12.7V17a2 2 0 002 2h4a2 2 0 002-2v-2.3A7 7 0 0012 2z"></path><path d="M9 21h6"></path></svg>
+Astra Purchase Intelligence
+</div>
+<div class="card mc-intelligence-card">
+<div class="mc-intelligence-list" id="pur-insights"></div>
+</div>
+</section>
+
+<!-- SECTION 4 — Purchase Orders -->
+<section class="mc-section">
+<div class="mc-section-title">Purchase Orders</div>
+<div class="card mc-table-card">
+<div class="pur-table-toolbar">
+<div class="mc-search pur-po-search">
+<svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="14"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+<input aria-label="Search purchase orders" id="pur-search" placeholder="Search PO number or supplier..." type="text"/>
+</div>
+<div class="pur-filters">
+<select class="pur-select" id="pur-filter-date" aria-label="Filter by date">
+<option value="all">All Dates</option>
+<option value="7">Last 7 days</option>
+<option value="30">Last 30 days</option>
+<option value="90">Last 90 days</option>
+</select>
+<select class="pur-select" id="pur-filter-supplier" aria-label="Filter by supplier">
+<option value="all">All Suppliers</option>
+</select>
+<select class="pur-select" id="pur-filter-status" aria-label="Filter by status">
+<option value="all">All Statuses</option>
+<option value="draft">Draft</option>
+<option value="pending">Pending Approval</option>
+<option value="approved">Approved</option>
+<option value="ordered">Ordered</option>
+<option value="partial">Partially Received</option>
+<option value="completed">Completed</option>
+<option value="cancelled">Cancelled</option>
+</select>
+</div>
+</div>
+<div class="inv-table-scroll">
+<table class="astra-table mc-table" id="purchase-orders-table">
+<thead>
+<tr>
+<th>PO Number</th><th>Supplier</th><th>Purchase Date</th><th>Expected Delivery</th><th>Items</th><th>Amount</th><th>Payment</th><th>Delivery</th><th>Approval</th><th>Created By</th><th>Actions</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+<div class="pur-table-empty" id="pur-table-empty" style="display:none;">No purchase orders match your filters.</div>
+</div>
+</section>
+
+<!-- SECTION 5 — Goods Receipt (GRN) -->
+<section class="mc-section">
+<div class="mc-section-title">Goods Receipt (GRN)</div>
+<div class="pur-grn-grid" id="pur-grn-summary"></div>
+</section>
+
+<!-- SECTION 6 — Supplier Performance -->
+<section class="mc-section">
+<div class="mc-section-title">Supplier Performance</div>
+<div class="pur-supplier-grid" id="pur-supplier-performance"></div>
+</section>
+
+<!-- SECTION 7 — Purchase Analytics -->
+<section class="mc-section">
+<div class="mc-section-title">Purchase Analytics</div>
+<div class="pur-analytics-grid">
+
+<div class="card pur-analytics-card pur-span-2">
+<div class="pur-analytics-head">Monthly Purchase Trend</div>
+<div class="pur-trend-chart" id="pur-trend-chart"></div>
+</div>
+
+<div class="card pur-analytics-card">
+<div class="pur-analytics-head">Purchase by Category</div>
+<div class="pur-bar-list" id="pur-category-list"></div>
+</div>
+
+<div class="card pur-analytics-card">
+<div class="pur-analytics-head">Top Suppliers</div>
+<div class="inv-top-list" id="pur-top-suppliers"></div>
+</div>
+
+<div class="card pur-analytics-card">
+<div class="pur-analytics-head">Cost Distribution</div>
+<div class="pur-donut-wrap">
+<svg class="pur-donut" viewbox="0 0 120 120" id="pur-donut-svg">
+<circle class="pur-donut-track" cx="60" cy="60" r="50"></circle>
+</svg>
+<div class="pur-donut-legend" id="pur-donut-legend"></div>
+</div>
+</div>
+
+<div class="card pur-analytics-card">
+<div class="pur-analytics-head">Most Purchased Materials</div>
+<div class="inv-top-list" id="pur-top-materials"></div>
+</div>
+
+</div>
+</section>
+
+<!-- SECTION 8 — Recent Purchase Activity -->
+<section class="mc-section">
+<div class="mc-section-title">Recent Purchase Activity</div>
+<div class="card">
+<div class="mc-timeline" id="pur-activity"></div>
+</div>
+</section>
+
+<!-- SECTION 9 — Upcoming Deliveries -->
+<section class="mc-section">
+<div class="mc-section-title">Upcoming Deliveries</div>
+<div class="pur-delivery-grid" id="pur-deliveries"></div>
+</section>
+
+</div>
+</div>
+</div>
+
+<div class="pur-toast-container" id="toast-container" aria-live="polite"></div>
+
+<script src="../../assets/js/storage.js"></script>
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/auth.js"></script>
+<script src="../../assets/js/app.js"></script>
+<script src="purchase.js"></script>
+</body>
+</html>

@@ -1,0 +1,523 @@
+/* ===========================================================
+   ASTRA — Supplier Management
+   Header, sidebar, KPI cards, and Astra Intelligence styling
+   come from dashboard.css (the design system source), linked
+   in suppliers.html. This file covers only what's unique to
+   the Supplier module: toolbar, table extras, drawer, modal,
+   and toast notifications.
+   =========================================================== */
+
+.sup-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sup-title {
+  font-family: var(--astra-font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--astra-text-white);
+}
+
+.sup-subtitle {
+  font-size: 13px;
+  color: var(--astra-text-dim);
+}
+
+/* ---------- Quick actions ---------- */
+
+.sup-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Toolbar ---------- */
+
+.sup-toolbar-card {
+  padding: 14px 16px;
+}
+
+.sup-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sup-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 240px;
+  flex: 1;
+  max-width: 320px;
+  padding: 9px 12px;
+  border-radius: var(--astra-radius-sm);
+  background: var(--astra-panel-2);
+  border: 1px solid var(--astra-border);
+  color: var(--astra-text-faint);
+  transition: border-color 0.15s ease;
+}
+
+.sup-search:focus-within {
+  border-color: var(--astra-cyan);
+}
+
+.sup-search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--astra-text);
+  font-size: 12.5px;
+  width: 100%;
+}
+
+.sup-search input::placeholder {
+  color: var(--astra-text-faint);
+}
+
+.sup-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sup-select {
+  background: var(--astra-panel-2);
+  border: 1px solid var(--astra-border);
+  border-radius: var(--astra-radius-sm);
+  padding: 8px 10px;
+  font-size: 12.5px;
+  color: var(--astra-text);
+}
+
+.sup-select:focus {
+  outline: none;
+  border-color: var(--astra-cyan);
+}
+
+.sup-filter-chip {
+  background: var(--astra-panel-2);
+  border: 1px solid var(--astra-border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 12px;
+  color: var(--astra-text-dim);
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.sup-filter-chip:hover {
+  color: var(--astra-text);
+  border-color: var(--astra-text-faint);
+}
+
+.sup-filter-chip.active {
+  color: var(--astra-cyan);
+  border-color: rgba(0, 229, 255, 0.35);
+  background: var(--astra-cyan-10);
+}
+
+/* ---------- Table extras ---------- */
+
+.sup-table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.sup-table-scroll {
+  overflow-x: auto;
+  max-height: 560px;
+  overflow-y: auto;
+}
+
+.sup-table {
+  min-width: 980px;
+}
+
+.sup-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--astra-panel);
+  z-index: 1;
+}
+
+.sup-table tbody tr {
+  cursor: pointer;
+}
+
+.sup-table td {
+  white-space: nowrap;
+}
+
+.sup-product-tag {
+  display: inline-block;
+  font-size: 10.5px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--astra-panel-2);
+  border: 1px solid var(--astra-border);
+  color: var(--astra-text-dim);
+  margin-right: 4px;
+}
+
+.sup-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--astra-font-mono);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.sup-status-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.sup-status-badge.active   { color: var(--astra-green); border-color: rgba(0,217,163,0.3); background: var(--astra-green-10); }
+.sup-status-badge.inactive { color: var(--astra-text-faint); border-color: var(--astra-border); background: transparent; }
+
+.sup-row-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.sup-icon-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--astra-border);
+  background: var(--astra-panel-2);
+  color: var(--astra-text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.sup-icon-btn:hover {
+  color: var(--astra-text-white);
+  border-color: var(--astra-text-faint);
+}
+
+.sup-empty-state {
+  padding: 40px 16px;
+  text-align: center;
+  color: var(--astra-text-faint);
+  font-size: 13px;
+}
+
+/* ---------- Overlay (shared by drawer + modal) ---------- */
+
+.sup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 20, 0.6);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 40;
+}
+
+.sup-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------- Drawer ---------- */
+
+.sup-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 420px;
+  max-width: 92vw;
+  background: var(--astra-panel);
+  border-left: 1px solid var(--astra-border);
+  box-shadow: -24px 0 60px -20px rgba(0, 0, 0, 0.6);
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 41;
+  display: flex;
+  flex-direction: column;
+}
+
+.sup-drawer.open {
+  transform: translateX(0);
+}
+
+.sup-drawer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 24px;
+  border-bottom: 1px solid var(--astra-border);
+  flex-shrink: 0;
+}
+
+.sup-drawer-name {
+  font-family: var(--astra-font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--astra-text-white);
+}
+
+.sup-drawer-code {
+  font-size: 11px;
+  color: var(--astra-text-faint);
+  margin-top: 2px;
+}
+
+.sup-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sup-drawer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sup-drawer-section-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--astra-text-faint);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--astra-border);
+}
+
+.sup-drawer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--astra-text);
+}
+
+.sup-drawer-row > span:first-child {
+  color: var(--astra-text-faint);
+}
+
+.sup-drawer-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sup-drawer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sup-drawer-list-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--astra-text-dim);
+  padding: 9px 10px;
+  background: var(--astra-panel-2);
+  border-radius: var(--astra-radius-sm);
+}
+
+.sup-drawer-list-empty {
+  font-size: 12px;
+  color: var(--astra-text-faint);
+}
+
+.sup-drawer-outstanding {
+  font-family: var(--astra-font-mono);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--astra-amber);
+}
+
+.sup-drawer-notes {
+  font-size: 12.5px;
+  color: var(--astra-text-dim);
+  line-height: 1.6;
+}
+
+/* ---------- Modal ---------- */
+
+.sup-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 640px;
+  max-width: 92vw;
+  max-height: 86vh;
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-radius: var(--astra-radius-lg);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+  transform: translate(-50%, -48%) scale(0.98);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease;
+  z-index: 41;
+  display: flex;
+  flex-direction: column;
+}
+
+.sup-modal.open {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sup-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--astra-border);
+  flex-shrink: 0;
+}
+
+.sup-modal-header h2 {
+  font-size: 16px;
+}
+
+.sup-modal-body {
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sup-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.sup-form-span2 {
+  grid-column: span 2;
+}
+
+.sup-textarea {
+  resize: vertical;
+  padding: 10px 12px;
+}
+
+.sup-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid var(--astra-border);
+  padding-top: 16px;
+}
+
+/* ---------- Toast notifications ---------- */
+
+.sup-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 60;
+}
+
+.sup-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 260px;
+  max-width: 360px;
+  padding: 13px 16px;
+  border-radius: var(--astra-radius-md);
+  background: var(--astra-panel);
+  border: 1px solid var(--astra-border);
+  border-left: 3px solid var(--astra-cyan);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+  font-size: 12.5px;
+  color: var(--astra-text);
+  transform: translateX(16px);
+  opacity: 0;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease;
+}
+
+.sup-toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.sup-toast.success { border-left-color: var(--astra-green); }
+.sup-toast.info     { border-left-color: var(--astra-cyan); }
+.sup-toast.warning   { border-left-color: var(--astra-amber); }
+
+.sup-toast-icon {
+  flex-shrink: 0;
+  display: flex;
+}
+
+.sup-toast.success .sup-toast-icon { color: var(--astra-green); }
+.sup-toast.info .sup-toast-icon     { color: var(--astra-cyan); }
+.sup-toast.warning .sup-toast-icon   { color: var(--astra-amber); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .sup-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .sup-form-span2 {
+    grid-column: span 1;
+  }
+  .sup-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sup-search {
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .sup-drawer {
+    width: 100%;
+    max-width: 100vw;
+  }
+  .sup-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sup-toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+  .sup-toast {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sup-drawer,
+  .sup-modal,
+  .sup-overlay,
+  .sup-toast {
+    transition: none !important;
+  }
+}
